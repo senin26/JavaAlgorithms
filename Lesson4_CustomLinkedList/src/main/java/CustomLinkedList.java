@@ -31,10 +31,10 @@ public class CustomLinkedList<T> implements Iterable<T> {
     private class Node {
         T t;
         Node next;
-        Node previous;
+        Node prev;
 
-        public Node(Node previous, T t, Node next) {
-            this.previous = previous;
+        public Node(Node prev, T t, Node next) {
+            this.prev = prev;
             this.t = t;
             this.next = next;
         }
@@ -66,7 +66,7 @@ public class CustomLinkedList<T> implements Iterable<T> {
             last = first;
         }
         else {
-            oldFirst.previous = first;
+            oldFirst.prev = first;
         }
         size++;
     }
@@ -86,7 +86,7 @@ public class CustomLinkedList<T> implements Iterable<T> {
             last = null;
         }
         else {
-            second.previous = null;
+            second.prev = null;
         }
         return t;
     }
@@ -115,8 +115,8 @@ public class CustomLinkedList<T> implements Iterable<T> {
             throw new NoSuchElementException("List is empty");
         }
         T t = last.t;
-        Node previous = last.previous;
-        last.previous = null;
+        Node previous = last.prev;
+        last.prev = null;
         last = previous;
         size--;
         if (isEmpty()) {
@@ -184,11 +184,11 @@ public class CustomLinkedList<T> implements Iterable<T> {
             return removeLast();
         }
         Node next = current.next;
-        Node previous = current.previous;
+        Node previous = current.prev;
         previous.next = next;
-        next.previous = previous;
+        next.prev = previous;
         size--;
-        current.previous = null;
+        current.prev = null;
         current.next = null;
         return current.t;
     }
@@ -212,10 +212,10 @@ public class CustomLinkedList<T> implements Iterable<T> {
             current = current.next;
             currentIndex++;
         }
-        Node newNode = new Node(current.previous, t, current);
-        Node previous = current.previous;
+        Node newNode = new Node(current.prev, t, current);
+        Node previous = current.prev;
         previous.next = newNode;
-        current.previous = newNode;
+        current.prev = newNode;
         size++;
     }
 
