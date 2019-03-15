@@ -8,7 +8,7 @@ public class TestExponentiation {
         Number number = 6;
         int power = 3;
         Double expected = Math.pow(number.doubleValue(), power);
-        Assert.assertEquals(expected, Exponentiation.getRecursivePower(number,power));
+        Assert.assertTrue(Math.abs(expected-Exponentiation.getRecursivePower(number,power))<0.0001);
     }
 
     @Test
@@ -16,7 +16,7 @@ public class TestExponentiation {
         Number number = 5.3;
         int power = 3;
         Double expected = Math.pow(number.doubleValue(), power);
-        Assert.assertEquals(expected, Exponentiation.getRecursivePower(number,power));
+        Assert.assertTrue(Math.abs(expected-Exponentiation.getRecursivePower(number,power))<0.0001);
     }
 
     @Test
@@ -24,15 +24,15 @@ public class TestExponentiation {
         Number number = Math.PI;
         int power = 2;
         Double expected = Math.pow(number.doubleValue(), power);
-        Assert.assertEquals(expected, Exponentiation.getRecursivePower(number,power));
+        Assert.assertTrue(Math.abs(expected-Exponentiation.getRecursivePower(number,power))<0.0001);
     }
 
     @Test
     public void test3Rec() {
         Number number = Math.PI;
-        int power = 9;
+        int power = 8;
         Double expected = Math.pow(number.doubleValue(), power);
-        Assert.assertEquals(expected, Exponentiation.getRecursivePower(number,power));
+        Assert.assertTrue(Math.abs(expected-Exponentiation.getRecursivePower(number,power))<0.0001);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class TestExponentiation {
         Number number = Math.PI;
         int power = 4;
         Double expected = Math.pow(number.doubleValue(), power);
-        Assert.assertEquals(expected, Exponentiation.getRecursivePower(number,power));
+        Assert.assertTrue(Math.abs(expected-Exponentiation.getRecursivePower(number,power))<0.0001);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class TestExponentiation {
         Number number = Math.PI;
         int power = 4;
         Double expected = Math.pow(number.doubleValue(), power);
-        Assert.assertEquals(expected, Exponentiation.getCyclePower(number,power));
+        Assert.assertTrue(Math.abs(expected-Exponentiation.getRecursivePower(number,power))<0.0001);
     }
 
     @Test
@@ -56,7 +56,7 @@ public class TestExponentiation {
         Number number = Math.PI;
         int power = 4;
         Double expected = Math.pow(number.doubleValue(), power);
-        Assert.assertEquals(expected, Exponentiation.getCyclePower(number,power));
+        Assert.assertTrue(Math.abs(expected-Exponentiation.getRecursivePower(number,power))<0.0001);
     }
 
 

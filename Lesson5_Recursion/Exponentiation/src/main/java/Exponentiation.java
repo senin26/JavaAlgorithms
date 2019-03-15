@@ -4,10 +4,22 @@ public final class Exponentiation {
     }
 
     public static Double getRecursivePower(Number number, int power) {
+        Double res;
+        int factor = 1;
+        while (power%2 == 0 && power>2) {
+            power/=2;
+            factor++;
+        }
         if (power == 1) {
             return number.doubleValue();
         }
-        return number.doubleValue()*getRecursivePower(number, power-1);
+        res = number.doubleValue()*getRecursivePower(number, power-1);
+
+        while (factor!=1) {
+            res*=res;
+            factor--;
+        }
+        return res;
     }
 
     public static Double getCyclePower(Number number, int power) {
